@@ -30,7 +30,7 @@ const analyzeResume = async (fileBase64, fileType, resumeText) => {
     { type: "text", text: ANALYSIS_PROMPT }
   ] : ANALYSIS_PROMPT + "\n\nRESUME:\n" + resumeText;
 
-  const res = await fetch("https://api.anthropic.com/v1/messages", {
+  const res = await fetch("/api/analyze", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
